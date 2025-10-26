@@ -3,11 +3,14 @@
   "type": "module",
   "version": "0.0.1",
   "engines": {
-    "node": "22.14.0"
+  "node": "22.x",
+  "npm": "10.x",
+  "yarn": "please-use-npm"
   },
   "scripts": {
+    "pre-install": "npx only-allow npm",
     "format": "prettier --write ./src",
-    "lint": "yarn lint:es && yarn lint:format",
+    "lint": "npm run lint:es && npm run lint:format",
     "lint:es": "eslint ./src --cache",
     "lint:format": "prettier --check ./src",
     "start": "astro dev",
