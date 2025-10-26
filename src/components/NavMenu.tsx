@@ -1,7 +1,6 @@
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { CaretDownIcon } from "@radix-ui/react-icons";
 import "../styles/NavMenu.css";
-import * as React from "react";
 
 type LinkItem = {
   type: "link";
@@ -20,7 +19,7 @@ export type MenuItem = LinkItem | DropdownItem;
 type NavMenuProps = {
   menuItems: MenuItem[];
 };
-const NavMenu: React.FC<NavMenuProps> = ({ menuItems }) => {
+const NavMenu = ({ menuItems }: NavMenuProps) => {
   return (
     <NavigationMenu.Root className="NavigationMenuRoot">
       <NavigationMenu.List className="NavigationMenuList">

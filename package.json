@@ -10,9 +10,10 @@
   "scripts": {
     "pre-install": "npx only-allow npm",
     "format": "prettier --write ./src",
-    "lint": "npm run lint:es && npm run lint:format",
-    "lint:es": "eslint ./src --cache",
-    "lint:format": "prettier --check ./src",
+    "check": "npm run lint && npm run format:check",
+    "lint": "eslint ./src --cache",
+    "format:check": "prettier --check ./src",
+    "format:write": "prettier --write ./src",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
@@ -34,7 +35,6 @@
     "astro-icon": "^1.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-social-media-embed": "^2.5.9",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.7.3",
     "zod": "^3.24.2"
