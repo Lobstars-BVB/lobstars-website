@@ -49,4 +49,8 @@
   a.anchor {
     @apply invisible relative -top-14 block;
   }
+
+  a.nav-link {
+    @apply text-sm font-bold text-neon-pink-dark hover:underline;
+  }
 }
