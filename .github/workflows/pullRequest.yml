@@ -22,7 +22,7 @@ jobs:
           node-version-file: ".tool-versions"
 
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: npm ci
 
       - name: Check for linting
-        run: yarn lint
+        run: npm run lint
