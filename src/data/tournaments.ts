@@ -2,7 +2,7 @@ type Tournament = {
   name: string;
   place: string;
   date: string;
-  placements: {
+  placements?: {
     numberOfTeams?: number;
     finalPlacement?: number;
     spirit?: number;
@@ -23,6 +23,25 @@ type Season = {
 };
 
 export const seasons: Season[] = [
+  {
+    year: 2025,
+    season: "Outdoor",
+    tournaments: [
+      { name: "DM 1. we", place: "Berlin", date: "30.8-31.8" },
+      {
+        name: "DM 2. we",
+        place: "Berlin",
+        date: "14.9-15.9",
+        placements: { numberOfTeams: 6, finalPlacement: 3 },
+        links: {
+          scores: {
+            games:
+              "https://scores.frisbeesportverband.de/?view=seriesstatus&series=1797",
+          },
+        },
+      },
+    ],
+  },
   {
     year: 2023,
     season: "Outdoor",
@@ -50,7 +69,6 @@ export const seasons: Season[] = [
         name: "DM 1. we",
         place: "Greifswald",
         date: "25.6-26.6",
-        placements: {},
       },
       {
         name: "Fackelup",
