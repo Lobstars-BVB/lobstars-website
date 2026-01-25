@@ -5,6 +5,13 @@ import HeaderSection from "../components/HeaderSection.astro";
 import FooterSection from "../components/FooterSection.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import { seasons } from "../data/tournaments";
+
+const DataNotAvailable = "N/A";
+
+const PlacementTr = (placement?: number, numberOfTeams?: number) =>
+  typeof placement === "number" && typeof numberOfTeams === "number"
+    ? `${placement}/${numberOfTeams}`
+    : DataNotAvailable;
 ---
 
 <Layout title="Tournaments">
@@ -44,19 +51,30 @@ import { seasons } from "../data/tournaments";
                           <td>{place}</td>
                           <td>{date}</td>
                           <td>
-                            {placements.finalPlacement}/
-                            {placements.numberOfTeams}
+                            {PlacementTr(
+                              placements.finalPlacement,
+                              placements.numberOfTeams,
+                            )}
                           </td>
                           <td>
-                            {placements.spirit}/{placements.numberOfTeams}
+                            {PlacementTr(
+                              placements.spirit,
+                              placements.numberOfTeams,
+                            )}
                           </td>
                           <td>
-                            <a href={links?.scores}>Link</a>
+                            {links?.scores ? (
+                              <a href={links?.scores}>Link</a>
+                            ) : (
+                              DataNotAvailable
+                            )}
                           </td>
                           <td>
-                            {links?.media?.map((link, index) => (
-                              <a href={link}>{index + 1}</a>
-                            ))}
+                            {links?.media
+                              ? links?.media?.map((link, index) => (
+                                  <a href={link}>{index + 1}</a>
+                                ))
+                              : DataNotAvailable}
                           </td>
                         </tr>
                       ),
