@@ -1,0 +1,68 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import HeaderSection from "../components/HeaderSection.astro";
+import FooterSection from "../components/FooterSection.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import { seasons } from "../data/tournaments";
+---
+
+<Layout title="Tournaments">
+  <main class="h-full w-full">
+    <HeaderSection id="header" />
+
+    <SectionContainer id="tournaments">
+      <h1>Tournaments</h1>
+
+      {
+        seasons.map((season) => (
+          <>
+            <h2 id={`${season.year}-${season.season}`}>
+              {season.year} {season.season}
+            </h2>
+            <table
+              class="table-auto"
+              aria-describedby={`${season.year}-${season.season}`}
+            >
+              <thead>
+                <tr>
+                  <th>Name</th> <th>Place</th>
+                  <th>Date</th>
+                  <th>Final placement</th>
+                  <th>Spirit placement</th>
+                  <th>Scores</th>
+                  <th>Media</th>
+                </tr>
+              </thead>
+              <tbody>
+                {season.tournaments.map((tournament) => (
+                  <tr>
+                    <td>{tournament.name}</td>
+                    <td>{tournament.place}</td>
+                    <td>{tournament.date}</td>
+                    <td>
+                      {tournament.placements.finalPlacement}/
+                      {tournament.placements.numberOfTeams}
+                    </td>
+                    <td>
+                      {tournament.placements.spirit}/
+                      {tournament.placements.numberOfTeams}
+                    </td>
+                    <td>{tournament.links?.scores}</td>
+                    <td>
+                      {tournament.links?.media?.map((link, index) => (
+                        <a href={link}>{index + 1}</a>
+                      ))}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </>
+        ))
+      }
+    </SectionContainer>
+
+    <FooterSection />
+  </main>
+</Layout>
