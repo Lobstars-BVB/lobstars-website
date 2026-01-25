@@ -1,12 +1,12 @@
 ---
 import "../styles/global.css";
-import "../styles/TournamentTable.css";
 
 import Layout from "../layouts/Layout.astro";
 import HeaderSection from "../components/HeaderSection.astro";
 import FooterSection from "../components/FooterSection.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import { seasons } from "../data/tournaments";
+import { TableItem } from "../components/TableItem";
 
 const PlacementTr = (placement?: number, numberOfTeams?: number) =>
   typeof placement === "number" &&
@@ -30,7 +30,7 @@ const PlacementTr = (placement?: number, numberOfTeams?: number) =>
               </h2>
               <div class="w-full overflow-x-auto">
                 <table
-                  class="mb-4 w-full min-w-[750px] table-fixed border-collapse"
+                  class="mb-4 w-full min-w-[1000px] table-fixed border-collapse"
                   aria-labelledby={`${season.year}-${season.season}`}
                 >
                   <thead class="border-b-2 border-gray-300">
@@ -47,38 +47,53 @@ const PlacementTr = (placement?: number, numberOfTeams?: number) =>
                     {season.tournaments.map(
                       ({ name, place, date, placements, links }) => (
                         <tr class="border-b border-gray-300 pb-2">
-                          <td>{name}</td>
-                          <td>{place}</td>
-                          <td>{date}</td>
-                          <td>
+                          <TableItem>{name}</TableItem>
+                          <TableItem>{place}</TableItem>
+                          <TableItem>{date}</TableItem>
+                          <TableItem>
                             {PlacementTr(
                               placements?.finalPlacement,
                               placements?.numberOfTeams,
                             )}
-                          </td>
-                          <td>
+                          </TableItem>
+                          <TableItem>
                             {PlacementTr(
                               placements?.spirit,
                               placements?.numberOfTeams,
                             )}
-                          </td>
-                          <td>
+                          </TableItem>
+                          <TableItem>
                             {links?.scores?.games && (
-                              <a href={links.scores.games}>Games</a>
+                              <a
+                                class="underline hover:no-underline"
+                                href={links.scores.games}
+                              >
+                                Games
+                              </a>
                             )}
                             {links?.scores?.spirit && (
-                              <a href={links.scores.spirit}>Spirit</a>
+                              <a
+                                class="underline hover:no-underline"
+                                href={links.scores.spirit}
+                              >
+                                Spirit
+                              </a>
                             )}
-                          </td>
-                          <td>
+                          </TableItem>
+                          <TableItem>
                             {links?.media &&
                               links.media.map((link, index, array) => (
                                 <>
-                                  <a href={link}>{index + 1}</a>
+                                  <a
+                                    class="underline hover:no-underline"
+                                    href={link}
+                                  >
+                                    {index + 1}
+                                  </a>
                                   {index !== array.length - 1 && "|"}
                                 </>
                               ))}
-                          </td>
+                          </TableItem>
                         </tr>
                       ),
                     )}

@@ -43,6 +43,21 @@ export const seasons: Season[] = [
     ],
   },
   {
+    year: 2024,
+    season: "Outdoor",
+    tournaments: [
+      {
+        name: "Mucho Gusto",
+        place: "Hamburg",
+        date: "22.6-23.6",
+        placements: {
+          numberOfTeams: 12,
+          spirit: 1,
+        },
+      },
+    ],
+  },
+  {
     year: 2023,
     season: "Outdoor",
     tournaments: [
@@ -204,6 +219,21 @@ export const seasons: Season[] = [
             "https://www.facebook.com/media/set/?set=a.668070917969727&type=3",
             "https://youtu.be/4_jUqfpY0AI?t=4066",
           ],
+        },
+      },
+    ],
+  },
+  {
+    year: 2021,
+    season: "Outdoor",
+    tournaments: [
+      {
+        name: "TiB tournament (as Trepthrowers)",
+        place: "Berlin",
+        date: "26.6-27.6",
+        placements: {
+          numberOfTeams: 16,
+          finalPlacement: 16,
         },
       },
     ],
