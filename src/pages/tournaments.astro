@@ -12,54 +12,61 @@ import { seasons } from "../data/tournaments";
     <HeaderSection id="header" />
 
     <SectionContainer id="tournaments">
-      <h1>Tournaments</h1>
+      <h1 class="mb-6">Tournaments</h1>
 
       {
-        seasons.map((season) => (
-          <>
-            <h2 id={`${season.year}-${season.season}`}>
-              {season.year} {season.season}
-            </h2>
-            <table
-              class="table-auto"
-              aria-describedby={`${season.year}-${season.season}`}
-            >
-              <thead>
-                <tr>
-                  <th>Name</th> <th>Place</th>
-                  <th>Date</th>
-                  <th>Final placement</th>
-                  <th>Spirit placement</th>
-                  <th>Scores</th>
-                  <th>Media</th>
-                </tr>
-              </thead>
-              <tbody>
-                {season.tournaments.map((tournament) => (
-                  <tr>
-                    <td>{tournament.name}</td>
-                    <td>{tournament.place}</td>
-                    <td>{tournament.date}</td>
-                    <td>
-                      {tournament.placements.finalPlacement}/
-                      {tournament.placements.numberOfTeams}
-                    </td>
-                    <td>
-                      {tournament.placements.spirit}/
-                      {tournament.placements.numberOfTeams}
-                    </td>
-                    <td>{tournament.links?.scores}</td>
-                    <td>
-                      {tournament.links?.media?.map((link, index) => (
-                        <a href={link}>{index + 1}</a>
-                      ))}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </>
-        ))
+        seasons.map((season) => {
+          return (
+            <div>
+              <h2 class="mb-4" id={`${season.year}-${season.season}`}>
+                {season.year} {season.season}
+              </h2>
+              <div class="w-full overflow-x-auto">
+                <table
+                  class="mb-4 w-4/5 min-w-[750px] table-auto border-collapse"
+                  aria-labelledby={`${season.year}-${season.season}`}
+                >
+                  <thead class="border-b-2 border-gray-300">
+                    <tr class="text-left">
+                      <th>Name</th> <th>Place</th>
+                      <th>Date</th>
+                      <th>Final placement</th>
+                      <th>Spirit placement</th>
+                      <th>Scores</th>
+                      <th>Media</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {season.tournaments.map(
+                      ({ name, place, date, placements, links }) => (
+                        <tr class="border-b border-gray-300 pb-2">
+                          <td>{name}</td>
+                          <td>{place}</td>
+                          <td>{date}</td>
+                          <td>
+                            {placements.finalPlacement}/
+                            {placements.numberOfTeams}
+                          </td>
+                          <td>
+                            {placements.spirit}/{placements.numberOfTeams}
+                          </td>
+                          <td>
+                            <a href={links?.scores}>Link</a>
+                          </td>
+                          <td>
+                            {links?.media?.map((link, index) => (
+                              <a href={link}>{index + 1}</a>
+                            ))}
+                          </td>
+                        </tr>
+                      ),
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          );
+        })
       }
     </SectionContainer>
 

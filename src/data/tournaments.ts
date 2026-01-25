@@ -34,8 +34,25 @@ export const seasons: Season[] = [
           spirit: 0,
         },
         links: {
-          scores: "link",
-          media: ["link"],
+          scores: "https://lobstars-frisbee.club/",
+          media: ["https://lobstars-frisbee.club/"],
+        },
+      },
+      {
+        name: "Paradisco",
+        place: "Jena",
+        date: "23/6-24/6",
+        placements: {
+          numberOfTeams: 10,
+          finalPlacement: 0,
+          spirit: 0,
+        },
+        links: {
+          scores: "https://lobstars-frisbee.club/",
+          media: [
+            "https://lobstars-frisbee.club/",
+            "https://lobstars-frisbee.club/",
+          ],
         },
       },
     ],
