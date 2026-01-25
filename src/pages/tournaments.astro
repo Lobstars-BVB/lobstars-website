@@ -1,17 +1,17 @@
 ---
 import "../styles/global.css";
+import "../styles/TournamentTable.css";
+
 import Layout from "../layouts/Layout.astro";
 import HeaderSection from "../components/HeaderSection.astro";
 import FooterSection from "../components/FooterSection.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import { seasons } from "../data/tournaments";
 
-const DataNotAvailable = "N/A";
-
 const PlacementTr = (placement?: number, numberOfTeams?: number) =>
-  typeof placement === "number" && typeof numberOfTeams === "number"
-    ? `${placement}/${numberOfTeams}`
-    : DataNotAvailable;
+  typeof placement === "number" &&
+  typeof numberOfTeams === "number" &&
+  `${placement}/${numberOfTeams}`;
 ---
 
 <Layout title="Tournaments">
@@ -30,7 +30,7 @@ const PlacementTr = (placement?: number, numberOfTeams?: number) =>
               </h2>
               <div class="w-full overflow-x-auto">
                 <table
-                  class="mb-4 w-4/5 min-w-[750px] table-auto border-collapse"
+                  class="mb-4 w-full min-w-[750px] table-fixed border-collapse"
                   aria-labelledby={`${season.year}-${season.season}`}
                 >
                   <thead class="border-b-2 border-gray-300">
@@ -63,18 +63,21 @@ const PlacementTr = (placement?: number, numberOfTeams?: number) =>
                             )}
                           </td>
                           <td>
-                            {links?.scores ? (
-                              <a href={links?.scores}>Link</a>
-                            ) : (
-                              DataNotAvailable
+                            {links?.scores?.games && (
+                              <a href={links.scores.games}>Games</a>
+                            )}
+                            {links?.scores?.spirit && (
+                              <a href={links.scores.spirit}>Spirit</a>
                             )}
                           </td>
                           <td>
-                            {links?.media
-                              ? links?.media?.map((link, index) => (
+                            {links?.media &&
+                              links.media.map((link, index, array) => (
+                                <>
                                   <a href={link}>{index + 1}</a>
-                                ))
-                              : DataNotAvailable}
+                                  {index !== array.length - 1 && "|"}
+                                </>
+                              ))}
                           </td>
                         </tr>
                       ),
