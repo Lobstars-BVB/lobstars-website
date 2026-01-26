@@ -8,7 +8,7 @@ import SectionContainer from "../components/SectionContainer.astro";
 import { seasons } from "../data/tournaments";
 import { TableItem } from "../components/TableItem";
 
-const PlacementTr = (placement?: number, numberOfTeams?: number) =>
+const PlacementTableItem = (placement?: number, numberOfTeams?: number) =>
   typeof placement === "number" &&
   typeof numberOfTeams === "number" &&
   `${placement}/${numberOfTeams}`;
@@ -20,7 +20,6 @@ const PlacementTr = (placement?: number, numberOfTeams?: number) =>
 
     <SectionContainer id="tournaments">
       <h1 class="mb-6">Tournaments</h1>
-
       {
         seasons.map((season) => {
           return (
@@ -30,12 +29,13 @@ const PlacementTr = (placement?: number, numberOfTeams?: number) =>
               </h2>
               <div class="w-full overflow-x-auto">
                 <table
-                  class="mb-4 w-full min-w-[1000px] table-fixed border-collapse"
+                  class="mb-4 w-full min-w-[00px] table-fixed border-collapse"
                   aria-labelledby={`${season.year}-${season.season}`}
                 >
                   <thead class="border-b-2 border-gray-300">
                     <tr class="text-left">
-                      <th>Name</th> <th>Place</th>
+                      <th>Name</th>
+                      <th>Place</th>
                       <th>Date</th>
                       <th>Final placement</th>
                       <th>Spirit placement</th>
@@ -51,13 +51,13 @@ const PlacementTr = (placement?: number, numberOfTeams?: number) =>
                           <TableItem>{place}</TableItem>
                           <TableItem>{date}</TableItem>
                           <TableItem>
-                            {PlacementTr(
+                            {PlacementTableItem(
                               placements?.finalPlacement,
                               placements?.numberOfTeams,
                             )}
                           </TableItem>
                           <TableItem>
-                            {PlacementTr(
+                            {PlacementTableItem(
                               placements?.spirit,
                               placements?.numberOfTeams,
                             )}
@@ -105,7 +105,6 @@ const PlacementTr = (placement?: number, numberOfTeams?: number) =>
         })
       }
     </SectionContainer>
-
     <FooterSection />
   </main>
 </Layout>
