@@ -27,6 +27,37 @@ export const seasons: Season[] = [
     year: 2025,
     season: "Outdoor",
     tournaments: [
+      {
+        name: "Welcome to paradise",
+        place: "Jena",
+        date: "28.6-29.6",
+        placements: {
+          numberOfTeams: 20,
+          finalPlacement: 19,
+        },
+        links: {
+          scores: {
+            games:
+              "https://docs.google.com/spreadsheets/d/1CVTQVg5SK4PVV_2W3TBJWYWKUjKqSJH0z1BOjnkaZz8/edit?gid=1222105276#gid=1222105276",
+          },
+        },
+      },
+      {
+        name: "Fackelup",
+        place: "Braunschweig",
+        date: "09.8-10.8",
+        placements: {
+          numberOfTeams: 24,
+          finalPlacement: 19,
+          spirit: 8,
+        },
+        links: {
+          scores: {
+            games: "https://fackelup.de/tournaments/2025/games",
+            spirit: "https://fackelup.de/tournaments/2025/spirit/results",
+          },
+        },
+      },
       { name: "DM 1. we", place: "Berlin", date: "30.8-31.8" },
       {
         name: "DM 2. we",
@@ -53,6 +84,22 @@ export const seasons: Season[] = [
         placements: {
           numberOfTeams: 12,
           spirit: 1,
+        },
+      },
+      {
+        name: "Fackelup",
+        place: "Braunschweig",
+        date: "20.7-21.7",
+        placements: {
+          numberOfTeams: 23,
+          finalPlacement: 21,
+          spirit: 7,
+        },
+        links: {
+          scores: {
+            games: "https://fackelup.de/tournaments/2024/games",
+            spirit: "https://fackelup.de/tournaments/2024/spirit/results",
+          },
         },
       },
     ],
