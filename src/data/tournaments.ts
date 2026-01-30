@@ -83,9 +83,10 @@ export const seasons: Season[] = [
           scores: {
             games:
               "https://ultiversum.com/tournaments/waesche-waschen-2025/games",
-            spirit: "https://fackelup.de/tournaments/2025/spirit/results",
           },
-          media: ["https://apps.scrappbook.de/HJYS5oPFex"],
+          media: [
+            "https://onedrive.live.com/?id=173E4C39EF7C1F0C%21s42c08847f5af438c9584b08de23cccfe&cid=173e4c39ef7c1f0c&ithint=folder&redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy8xNzNlNGMzOWVmN2MxZjBjL0VrZUl3RUt2OVl4RGxZU3dqZUk4elA0QjF5dGU4aTNDM0NVRDVCZ1pfV2h6c0E%5FZT1qRHNDVjQ",
+          ],
         },
       },
       { name: "DM 1. we", place: "Berlin", date: "30.8-31.8" },
@@ -145,6 +146,44 @@ export const seasons: Season[] = [
         date: "17.8-18.8",
         placements: {
           numberOfTeams: 16,
+          spirit: 1,
+          finalPlacement: 10,
+        },
+      },
+      {
+        name: "Wäsche Waschen",
+        place: "Eberswalde",
+        date: "14.9-15.9",
+        placements: {
+          numberOfTeams: 14,
+          finalPlacement: 7,
+          spirit: 8,
+        },
+        links: {
+          media: [
+            "https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvcyFBZ3dmZk84NVRENFhoSnNFcHYxTE1RbjhNUmxxc0E%5FZT1WdVU1aE0&id=173E4C39EF7C1F0C%2168996&cid=173E4C39EF7C1F0C",
+          ],
+        },
+      },
+    ],
+  },
+  {
+    year: 2024,
+    season: "Indoor",
+    tournaments: [
+      {
+        name: "Scherz im März",
+        place: "Regensburg",
+        date: "23.3-24.3",
+        placements: {
+          numberOfTeams: 12,
+          spirit: 4,
+        },
+        links: {
+          scores: {
+            spirit:
+              "https://ultiversum.com/tournaments/scherz-im-maerz-2024/spirit/results",
+          },
         },
       },
     ],
@@ -222,6 +261,24 @@ export const seasons: Season[] = [
     season: "Outdoor",
     tournaments: [
       {
+        name: "TournaMINT",
+        place: "München",
+        date: "?",
+        placements: {
+          numberOfTeams: 12,
+          finalPlacement: 13,
+          spirit: 4,
+        },
+        links: {
+          scores: {
+            games:
+              "https://docs.google.com/spreadsheets/d/1wU9e-Xz0QHb1lbPd3OfZ8Xz_1_jnWG97eh9o0pgAiVg/edit?gid=643692636#gid=643692636",
+            spirit:
+              "https://docs.google.com/spreadsheets/d/1N5WlO00xSP51dp5bnDknRHPOjDvYBRCCVkHuN_mOniw/edit?gid=0#gid=0",
+          },
+        },
+      },
+      {
         name: "Flying Unicorn Cup Kundl",
         place: "Kundl",
         date: "28.5-29.5",
@@ -271,13 +328,17 @@ export const seasons: Season[] = [
         place: "Berlin",
         date: "17.9-18.9",
         placements: {
-          numberOfTeams: 12,
+          numberOfTeams: 14,
+          finalPlacement: 11,
           spirit: 1,
         },
         links: {
           media: [
             "https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBblZKUWhtNkVlQzJ0Q0ZhNE5kMTAtVkhvS3BHP2U9MGUzZk9r&id=B6E011BA19424975%216689&cid=B6E011BA19424975",
           ],
+          scores: {
+            games: "https://ultiversum.com/tournaments/rotairnament-2022/games",
+          },
         },
       },
       {
@@ -285,12 +346,16 @@ export const seasons: Season[] = [
         place: "Berlin",
         date: "17.9-18.9",
         placements: {
-          numberOfTeams: 12,
+          numberOfTeams: 14,
+          finalPlacement: 9,
         },
         links: {
           media: [
             "https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBblZKUWhtNkVlQzJ0Q0ZhNE5kMTAtVkhvS3BHP2U9MGUzZk9r&id=B6E011BA19424975%216689&cid=B6E011BA19424975",
           ],
+          scores: {
+            games: "https://ultiversum.com/tournaments/rotairnament-2022/games",
+          },
         },
       },
       {
@@ -337,6 +402,15 @@ export const seasons: Season[] = [
     year: 2021,
     season: "Outdoor",
     tournaments: [
+      {
+        name: "BBM (as Trepthrowers)",
+        place: "Berlin",
+        date: "17.10",
+        placements: {
+          numberOfTeams: 16,
+          finalPlacement: 13,
+        },
+      },
       {
         name: "TiB tournament (as Trepthrowers)",
         place: "Berlin",
