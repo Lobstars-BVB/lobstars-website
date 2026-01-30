@@ -28,6 +28,11 @@ export const seasons: Season[] = [
     season: "Outdoor",
     tournaments: [
       {
+        name: "Tekiela Sunrise",
+        place: "Kiel",
+        date: "7.6-8.6",
+      },
+      {
         name: "Welcome to paradise",
         place: "Jena",
         date: "28.6-29.6",
@@ -58,6 +63,23 @@ export const seasons: Season[] = [
           },
         },
       },
+      {
+        name: "Wäsche Waschen",
+        place: "Eberswalde",
+        date: "23.8-24.8",
+        placements: {
+          numberOfTeams: 12,
+          finalPlacement: 7,
+          spirit: 8,
+        },
+        links: {
+          scores: {
+            games:
+              "https://ultiversum.com/tournaments/waesche-waschen-2025/games",
+            spirit: "https://fackelup.de/tournaments/2025/spirit/results",
+          },
+        },
+      },
       { name: "DM 1. we", place: "Berlin", date: "30.8-31.8" },
       {
         name: "DM 2. we",
@@ -83,7 +105,14 @@ export const seasons: Season[] = [
         date: "22.6-23.6",
         placements: {
           numberOfTeams: 12,
+          finalPlacement: 11,
           spirit: 1,
+        },
+        links: {
+          scores: {
+            games:
+              "https://ultiversum.com/tournaments/muchogustocup-2024/games",
+          },
         },
       },
       {
@@ -100,6 +129,14 @@ export const seasons: Season[] = [
             games: "https://fackelup.de/tournaments/2024/games",
             spirit: "https://fackelup.de/tournaments/2024/spirit/results",
           },
+        },
+      },
+      {
+        name: "TournaMINT",
+        place: "München",
+        date: "17.8-18.8",
+        placements: {
+          numberOfTeams: 16,
         },
       },
     ],
@@ -176,6 +213,24 @@ export const seasons: Season[] = [
     year: 2022,
     season: "Outdoor",
     tournaments: [
+      {
+        name: "Flying Unicorn Cup Kundl",
+        place: "Kundl",
+        date: "28.5-29.5",
+        placements: {
+          numberOfTeams: 14,
+          finalPlacement: 13,
+          spirit: 1,
+        },
+        links: {
+          scores: {
+            games:
+              "https://ultimatecentral.com/en_ie/e/flying-unicorn-cup-kundl-2022/standings",
+            spirit:
+              "https://ultimatecentral.com/en_ie/e/flying-unicorn-cup-kundl-2022/spirit",
+          },
+        },
+      },
       {
         name: "Welcome to paradise",
         place: "Jena",

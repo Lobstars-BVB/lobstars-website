@@ -8,10 +8,16 @@ import SectionContainer from "../components/SectionContainer.astro";
 import { seasons } from "../data/tournaments";
 import { TableItem } from "../components/TableItem";
 
+const medal: { [place: number]: string } = {
+  1: "🥇",
+  2: "🥈",
+  3: "🥉",
+};
+
 const PlacementTableItem = (placement?: number, numberOfTeams?: number) =>
   typeof placement === "number" &&
   typeof numberOfTeams === "number" &&
-  `${placement}/${numberOfTeams}`;
+  `${placement}/${numberOfTeams} ${medal[placement] ?? ""}`;
 ---
 
 <Layout title="Tournaments">
@@ -29,7 +35,7 @@ const PlacementTableItem = (placement?: number, numberOfTeams?: number) =>
               </h2>
               <div class="w-full overflow-x-auto">
                 <table
-                  class="mb-4 w-full min-w-[00px] table-fixed border-collapse"
+                  class="mb-4 w-full min-w-[1000px] table-fixed border-collapse"
                   aria-labelledby={`${season.year}-${season.season}`}
                 >
                   <thead class="border-b-2 border-gray-300">
