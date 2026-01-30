@@ -45,6 +45,10 @@ export const seasons: Season[] = [
             games:
               "https://docs.google.com/spreadsheets/d/1CVTQVg5SK4PVV_2W3TBJWYWKUjKqSJH0z1BOjnkaZz8/edit?gid=1222105276#gid=1222105276",
           },
+          media: [
+            "https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDYzNDc3ODkwMjczMDM1?igsh=ODFham93dWtsd2h1",
+            "https://cloud.lowfill.eu/s/bW68wgHjJxwFope",
+          ],
         },
       },
       {
@@ -61,6 +65,9 @@ export const seasons: Season[] = [
             games: "https://fackelup.de/tournaments/2025/games",
             spirit: "https://fackelup.de/tournaments/2025/spirit/results",
           },
+          media: [
+            "https://drive.google.com/drive/folders/1kRc5OuBdleDgsM64wQ28P-1ORR01znX5",
+          ],
         },
       },
       {
@@ -78,6 +85,7 @@ export const seasons: Season[] = [
               "https://ultiversum.com/tournaments/waesche-waschen-2025/games",
             spirit: "https://fackelup.de/tournaments/2025/spirit/results",
           },
+          media: ["https://apps.scrappbook.de/HJYS5oPFex"],
         },
       },
       { name: "DM 1. we", place: "Berlin", date: "30.8-31.8" },
