@@ -42,20 +42,30 @@ const NavMenu = ({ menuItems }: NavMenuProps) => {
                   {menuItem.label}{" "}
                   <CaretDownIcon className="CaretDown" aria-hidden />
                 </NavigationMenu.Trigger>
-                <NavigationMenu.Content className="NavigationMenuContent">
-                  <ul className="DropdownList">
-                    {menuItem.children.map((linkItem: LinkItem) => {
-                      return (
-                        <li key={linkItem.label}>
-                          <NavigationMenu.Link asChild>
-                            <a className="ListItemLink" href={linkItem.href}>
-                              {linkItem.label}
-                            </a>
-                          </NavigationMenu.Link>
-                        </li>
-                      );
-                    })}
-                  </ul>
+                <NavigationMenu.Content
+                  asChild
+                  className="NavigationMenuContent"
+                >
+                  <NavigationMenu.Sub>
+                    <NavigationMenu.List asChild>
+                      <ul className="DropdownList">
+                        {menuItem.children.map((linkItem: LinkItem) => {
+                          return (
+                            <li key={linkItem.label}>
+                              <NavigationMenu.Link asChild>
+                                <a
+                                  className="ListItemLink"
+                                  href={linkItem.href}
+                                >
+                                  {linkItem.label}
+                                </a>
+                              </NavigationMenu.Link>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </NavigationMenu.List>
+                  </NavigationMenu.Sub>
                 </NavigationMenu.Content>
               </NavigationMenu.Item>
             );
@@ -66,10 +76,6 @@ const NavMenu = ({ menuItems }: NavMenuProps) => {
           <div className="Arrow" />
         </NavigationMenu.Indicator>
       </NavigationMenu.List>
-
-      <div className="ViewportPosition">
-        <NavigationMenu.Viewport className="NavigationMenuViewport" />
-      </div>
     </NavigationMenu.Root>
   );
 };
