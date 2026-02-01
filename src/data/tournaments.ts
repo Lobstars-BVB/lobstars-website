@@ -265,8 +265,8 @@ export const seasons: Season[] = [
         place: "München",
         date: "?",
         placements: {
-          numberOfTeams: 12,
-          finalPlacement: 13,
+          numberOfTeams: 13,
+          finalPlacement: 12,
           spirit: 4,
         },
         links: {
