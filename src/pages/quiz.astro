@@ -31,9 +31,8 @@ import QuizAppWrapper from "../components/QuizAppWrapper.tsx";
 </style>
 
 <Layout title="Quiz">
+  <HeaderSection id="header" />
   <main class="h-full w-full">
-    <HeaderSection id="header" />
-
     <section class="section-container grid gap-4 px-4 pt-32">
       <h1>Here we learn how to play Ultimate Frisbee with a game</h1>
 
@@ -49,7 +48,6 @@ import QuizAppWrapper from "../components/QuizAppWrapper.tsx";
         <QuizAppWrapper client:only="react" />
       </div>
     </section>
-
-    <FooterSection />
   </main>
+  <FooterSection />
 </Layout>
