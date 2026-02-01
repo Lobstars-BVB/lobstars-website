@@ -69,30 +69,16 @@
 
 .NavigationMenuContent {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 49px;
+  left: 0px;
   width: 100%;
-  animation-duration: 250ms;
-  animation-timing-function: ease;
 }
-.NavigationMenuContent[data-motion="from-start"] {
-  animation-name: enterFromLeft;
-}
-.NavigationMenuContent[data-motion="from-end"] {
-  animation-name: enterFromRight;
-}
-.NavigationMenuContent[data-motion="to-start"] {
-  animation-name: exitToLeft;
-}
-.NavigationMenuContent[data-motion="to-end"] {
-  animation-name: exitToRight;
-}
+
 @media only screen and (min-width: 600px) {
   .NavigationMenuContent {
     width: auto;
   }
 }
-
 .NavigationMenuIndicator {
   display: flex;
   align-items: flex-end;
@@ -112,31 +98,14 @@
   animation: fadeOut 200ms ease;
 }
 
-.NavigationMenuViewport {
-  position: relative;
-  transform-origin: top right;
-  margin-top: 10px;
-  width: 100%;
-  background-color: white;
-  border-radius: 6px;
-  overflow: hidden;
-  box-shadow:
-    0px 10px 38px -10px theme("colors.neon-pink.200"),
-    0px 10px 20px -15px theme("colors.neon-pink.200");
-  height: var(--radix-navigation-menu-viewport-height);
-  transition:
-    width,
-    height,
-    300ms ease;
+.NavigationMenuContent[data-state="open"] {
+  animation: enter 200ms ease;
 }
-.NavigationMenuViewport[data-state="open"] {
-  animation: scaleIn 200ms ease;
-}
-.NavigationMenuViewport[data-state="closed"] {
-  animation: scaleOut 200ms ease;
+.NavigationMenuContent[data-state="closed"] {
+  animation: exit 200ms ease;
 }
 @media only screen and (min-width: 600px) {
-  .NavigationMenuViewport {
+  .NavigationMenuContent {
     width: var(--radix-navigation-menu-viewport-width);
   }
 }
@@ -146,9 +115,11 @@
   flex-direction: column;
   gap: 4px;
   padding: 2px;
-  margin: 0;
-  list-style: none;
-  min-width: 180px;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow:
+    0px 10px 38px -10px theme("colors.neon-pink.200"),
+    0px 10px 20px -15px theme("colors.neon-pink.200");
 }
 
 .ListItemLink {
@@ -168,16 +139,6 @@
 }
 .ListItemLink:hover {
   @apply bg-neon-pink-50;
-}
-
-.ViewportPosition {
-  position: absolute;
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-  top: 100%;
-  left: 0;
-  perspective: 2000px;
 }
 
 .CaretDown {
@@ -200,69 +161,25 @@
   border-top-left-radius: 2px;
 }
 
-@keyframes enterFromRight {
+@keyframes enter {
   from {
     opacity: 0;
-    transform: translateX(200px);
+    transform: translateY(-10px) scale(0.9);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0px) scale(1);
   }
 }
 
-@keyframes enterFromLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-200px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes exitToRight {
+@keyframes exit {
   from {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0px) scale(1);
   }
   to {
     opacity: 0;
-    transform: translateX(200px);
-  }
-}
-
-@keyframes exitToLeft {
-  from {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateX(-200px);
-  }
-}
-
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: rotateX(-30deg) scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: rotateX(0deg) scale(1);
-  }
-}
-
-@keyframes scaleOut {
-  from {
-    opacity: 1;
-    transform: rotateX(0deg) scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: rotateX(-10deg) scale(0.95);
+    transform: translateY(-10px) scale(0.95);
   }
 }
 
