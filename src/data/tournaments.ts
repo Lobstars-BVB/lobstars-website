@@ -109,6 +109,14 @@ export const seasons: Season[] = [
     season: "Outdoor",
     tournaments: [
       {
+        name: "Welcome to paradise",
+        place: "Jena",
+        date: "08.6-09.6",
+        placements: {
+          numberOfTeams: 20,
+        },
+      },
+      {
         name: "Mucho Gusto",
         place: "Hamburg",
         date: "22.6-23.6",
@@ -193,6 +201,11 @@ export const seasons: Season[] = [
     season: "Outdoor",
     tournaments: [
       {
+        name: "Paganello",
+        date: "7.4-9.4",
+        place: "Rimini",
+      },
+      {
         name: "Welcome to paradise",
         place: "Jena",
         date: "18.6-19.6",
@@ -261,24 +274,6 @@ export const seasons: Season[] = [
     season: "Outdoor",
     tournaments: [
       {
-        name: "TournaMINT",
-        place: "München",
-        date: "?",
-        placements: {
-          numberOfTeams: 13,
-          finalPlacement: 12,
-          spirit: 4,
-        },
-        links: {
-          scores: {
-            games:
-              "https://docs.google.com/spreadsheets/d/1wU9e-Xz0QHb1lbPd3OfZ8Xz_1_jnWG97eh9o0pgAiVg/edit?gid=643692636#gid=643692636",
-            spirit:
-              "https://docs.google.com/spreadsheets/d/1N5WlO00xSP51dp5bnDknRHPOjDvYBRCCVkHuN_mOniw/edit?gid=0#gid=0",
-          },
-        },
-      },
-      {
         name: "Flying Unicorn Cup Kundl",
         place: "Kundl",
         date: "28.5-29.5",
@@ -321,6 +316,24 @@ export const seasons: Season[] = [
           numberOfTeams: 12,
           finalPlacement: 12,
           spirit: 1,
+        },
+      },
+      {
+        name: "TournaMINT",
+        place: "München",
+        date: "18.8-19.8",
+        placements: {
+          numberOfTeams: 13,
+          finalPlacement: 12,
+          spirit: 4,
+        },
+        links: {
+          scores: {
+            games:
+              "https://docs.google.com/spreadsheets/d/1wU9e-Xz0QHb1lbPd3OfZ8Xz_1_jnWG97eh9o0pgAiVg/edit?gid=643692636#gid=643692636",
+            spirit:
+              "https://docs.google.com/spreadsheets/d/1N5WlO00xSP51dp5bnDknRHPOjDvYBRCCVkHuN_mOniw/edit?gid=0#gid=0",
+          },
         },
       },
       {
