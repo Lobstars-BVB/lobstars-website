@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ContactSection from "../components/ContactSection.astro";
+import SectionContainer from "../components/SectionContainer.astro";
 import HeaderSection from "../components/HeaderSection.astro";
 import FooterSection from "../components/FooterSection.astro";
 
@@ -10,7 +11,7 @@ import "../styles/global.css";
 <Layout title="What is Ultimate Frisbee? - Lobstars Berlin">
   <HeaderSection id="header" />
   <main class="h-full w-full">
-    <section class="section-container grid gap-4 px-10 pt-32">
+    <SectionContainer cssClasses="grid gap-4">
       <h1>What is Ultimate Frisbee?</h1>
 
       <iframe
@@ -53,7 +54,7 @@ import "../styles/global.css";
           href="https://wfdf.sport/disciplines/ultimate/">WFDF</a
         >
       </p>
-    </section>
+    </SectionContainer>
 
     <ContactSection id="contact" />
   </main>
