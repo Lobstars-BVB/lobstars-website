@@ -48,29 +48,29 @@ const menuItems: MenuItem[] = [
   <nav
     class="mx-auto flex h-12 max-w-screen-xl items-center justify-between px-4 py-2"
   >
-    <a href="/">
+    <a href="/" class="hidden sm:block">
       <div class="flex items-center space-x-3">
         <div class="w-16">
           <Image
             src={claw}
-            alt="lobstars logo "
+            alt="lobstars logo"
             quality="med"
             widths={[250, 400]}
             sizes="(max-width: 450px) 250, 400px"
           />
         </div>
-        <div class="hidden sm:block">
-          <a
-            class="nav-link"
-            href={"https://www.instagram.com/lobstarsfrisbee"}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            @lobstarsfrisbee
-          </a>
-        </div>
       </div>
     </a>
+    <div class="hidden sm:block">
+      <a
+        class="nav-link"
+        href={"https://www.instagram.com/lobstarsfrisbee"}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        @lobstarsfrisbee
+      </a>
+    </div>
     <NavMenu client:load menuItems={menuItems} />
   </nav>
   <div class="border-2 border-b border-neon-pink-dark"></div>
