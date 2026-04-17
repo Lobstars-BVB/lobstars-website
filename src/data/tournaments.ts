@@ -35,9 +35,9 @@ export const seasons: Season[] = [
           numberOfTeams: 13,
           finalPlacement: 13,
           spirit: 2,
-        }
-      }
-    ]
+        },
+      },
+    ],
   },
   {
     year: 2025,
