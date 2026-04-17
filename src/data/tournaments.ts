@@ -24,6 +24,22 @@ type Season = {
 
 export const seasons: Season[] = [
   {
+    year: 2026,
+    season: "Indoor",
+    tournaments: [
+      {
+        name: "StackUp Indoors",
+        place: "Stockholm",
+        date: "11.4-12.4",
+        placements: {
+          numberOfTeams: 13,
+          finalPlacement: 13,
+          spirit: 2,
+        }
+      }
+    ]
+  },
+  {
     year: 2025,
     season: "Outdoor",
     tournaments: [
