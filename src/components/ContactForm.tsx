@@ -29,9 +29,14 @@ export default function ContactForm() {
         return;
       }
       const messageParts: string[] = [];
-      if (formJson.years_of_experience) messageParts.push(`Years of experience: ${formJson.years_of_experience}`);
-      if (formJson.home_team) messageParts.push(`Home team: ${formJson.home_team}`);
-      if (formJson.commitment) messageParts.push(`Commitment: ${formJson.commitment}`);
+      if (formJson.years_of_experience)
+        messageParts.push(
+          `Years of experience: ${formJson.years_of_experience}`,
+        );
+      if (formJson.home_team)
+        messageParts.push(`Home team: ${formJson.home_team}`);
+      if (formJson.commitment)
+        messageParts.push(`Commitment: ${formJson.commitment}`);
       messageParts.push(`Message: ${formJson.message}`);
 
       await emailjs.send(
