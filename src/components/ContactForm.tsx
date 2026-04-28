@@ -106,7 +106,6 @@ export default function ContactForm() {
               type="number"
               name="years_of_experience"
               min="0"
-              required
               className="w-full rounded-md border border-gray-300 px-4 py-2"
             />
           </div>
