@@ -130,7 +130,6 @@ export default function ContactForm() {
                 type="radio"
                 name="commitment"
                 value="Join the team (long term)"
-                required
               />
               Join the team (long term)
             </label>
