@@ -34,7 +34,12 @@ export default function ContactForm() {
         {
           from_name: formJson.name,
           from_email: formJson.email,
-          message: formJson.message,
+          message: [
+            `Years of experience: ${formJson.years_of_experience}`,
+            `Home team: ${formJson.home_team}`,
+            `Commitment: ${formJson.commitment}`,
+            `Message: ${formJson.message}`,
+          ].join("\n"),
         },
         { publicKey: "YGL6jQ4ZZE8y_Ihth" },
       );
@@ -91,12 +96,62 @@ export default function ContactForm() {
           </div>
 
           <div className="mb-4">
+            <label
+              htmlFor="years_of_experience"
+              className="mb-2 block text-sm font-bold"
+            >
+              Years of experience:
+            </label>
+            <input
+              type="number"
+              name="years_of_experience"
+              min="0"
+              required
+              className="w-full rounded-md border border-gray-300 px-4 py-2"
+            />
+          </div>
+
+          <div className="mb-4">
+            <label htmlFor="home_team" className="mb-2 block text-sm font-bold">
+              Home team:
+            </label>
+            <input
+              type="text"
+              name="home_team"
+              required
+              className="w-full rounded-md border border-gray-300 px-4 py-2"
+            />
+          </div>
+
+          <div className="mb-4">
+            <p className="mb-2 text-sm font-bold">
+              How long are you planning to play with us?
+            </p>
+            <label className="mb-2 flex items-center gap-2">
+              <input
+                type="radio"
+                name="commitment"
+                value="Join the team (long term)"
+                required
+              />
+              Join the team (long term)
+            </label>
+            <label className="flex items-center gap-2">
+              <input
+                type="radio"
+                name="commitment"
+                value="Join one/few training/s"
+              />
+              Join one/few training/s
+            </label>
+          </div>
+
+          <div className="mb-4">
             <label htmlFor="message" className="mb-2 block text-sm font-bold">
               Message:
             </label>
             <textarea
               name="message"
-              required
               className="h-32 w-full rounded-md border border-gray-300 px-4 py-2"
             ></textarea>
           </div>
