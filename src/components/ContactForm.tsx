@@ -118,7 +118,6 @@ export default function ContactForm() {
             <input
               type="text"
               name="home_team"
-              required
               className="w-full rounded-md border border-gray-300 px-4 py-2"
             />
           </div>
