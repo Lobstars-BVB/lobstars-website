@@ -28,18 +28,19 @@ export default function ContactForm() {
         setState(State.Sent);
         return;
       }
+      const messageParts: string[] = [];
+      if (formJson.years_of_experience) messageParts.push(`Years of experience: ${formJson.years_of_experience}`);
+      if (formJson.home_team) messageParts.push(`Home team: ${formJson.home_team}`);
+      if (formJson.commitment) messageParts.push(`Commitment: ${formJson.commitment}`);
+      messageParts.push(`Message: ${formJson.message}`);
+
       await emailjs.send(
         "default_service",
         "template_aillhuc",
         {
           from_name: formJson.name,
           from_email: formJson.email,
-          message: [
-            `Years of experience: ${formJson.years_of_experience}`,
-            `Home team: ${formJson.home_team}`,
-            `Commitment: ${formJson.commitment}`,
-            `Message: ${formJson.message}`,
-          ].join("\n"),
+          message: messageParts.join("\n"),
         },
         { publicKey: "YGL6jQ4ZZE8y_Ihth" },
       );
@@ -149,6 +150,7 @@ export default function ContactForm() {
             </label>
             <textarea
               name="message"
+              required
               className="h-32 w-full rounded-md border border-gray-300 px-4 py-2"
             ></textarea>
           </div>
