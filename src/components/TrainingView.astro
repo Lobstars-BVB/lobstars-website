@@ -3,13 +3,13 @@ import ContentContainer from "./ContentContainer.astro";
 
 interface Props {
   title: string;
-  day: string;
-  time?: string;
   address: string;
   place: string;
   openMapURL: string;
   openMapIframeSrc: string;
   googleMapURL: string;
+  day?: string;
+  time?: string;
 }
 
 const {
@@ -28,14 +28,25 @@ const {
   <h2 class="text-2xl font-bold text-neon-pink-dark">{title}</h2>
   <div class="text-main space-y-2 font-medium">
     <div>
-      <p><b>When:</b> {day}</p>
       {
-        time && (
+        time && day ? (
           <p>
+            <b>When:</b> {day}
+            <br />
             <a href="#training-note">
               <b>Time:</b>
               <span class="underline">{time}</span> *
             </a>
+          </p>
+        ) : (
+          <p class="italic ">
+            Contact us through the{" "}
+            <a href="#contact" class="underline hover:no-underline">
+              contact form
+            </a>{" "}
+            for more information
+            <br />
+            <br />
           </p>
         )
       }
