@@ -28,13 +28,24 @@ export default function ContactForm() {
         setState(State.Sent);
         return;
       }
+      const messageParts: string[] = [];
+      if (formJson.years_of_experience)
+        messageParts.push(
+          `Years of experience: ${formJson.years_of_experience}`,
+        );
+      if (formJson.home_team)
+        messageParts.push(`Home team: ${formJson.home_team}`);
+      if (formJson.commitment)
+        messageParts.push(`Commitment: ${formJson.commitment}`);
+      messageParts.push(`Message: ${formJson.message}`);
+
       await emailjs.send(
         "default_service",
         "template_aillhuc",
         {
           from_name: formJson.name,
           from_email: formJson.email,
-          message: formJson.message,
+          message: messageParts.join("\n"),
         },
         { publicKey: "YGL6jQ4ZZE8y_Ihth" },
       );
@@ -88,6 +99,54 @@ export default function ContactForm() {
               required
               className="w-full rounded-md border border-gray-300 px-4 py-2"
             />
+          </div>
+
+          <div className="mb-4">
+            <label
+              htmlFor="years_of_experience"
+              className="mb-2 block text-sm font-bold"
+            >
+              Years of experience:
+            </label>
+            <input
+              type="number"
+              name="years_of_experience"
+              min="0"
+              className="w-full rounded-md border border-gray-300 px-4 py-2"
+            />
+          </div>
+
+          <div className="mb-4">
+            <label htmlFor="home_team" className="mb-2 block text-sm font-bold">
+              Home team:
+            </label>
+            <input
+              type="text"
+              name="home_team"
+              className="w-full rounded-md border border-gray-300 px-4 py-2"
+            />
+          </div>
+
+          <div className="mb-4">
+            <p className="mb-2 text-sm font-bold">
+              How long are you planning to play with us?
+            </p>
+            <label className="mb-2 flex items-center gap-2">
+              <input
+                type="radio"
+                name="commitment"
+                value="Join the team (long term)"
+              />
+              Join the team (long term)
+            </label>
+            <label className="flex items-center gap-2">
+              <input
+                type="radio"
+                name="commitment"
+                value="Join one/few training/s"
+              />
+              Join one/few training/s
+            </label>
           </div>
 
           <div className="mb-4">
