@@ -14,10 +14,10 @@ const medal: { [place: number]: string } = {
   3: "🥉",
 };
 
-const PlacementTableItem = (placement?: number, numberOfTeams?: number) =>
-  typeof placement === "number" &&
-  typeof numberOfTeams === "number" &&
-  `${placement}/${numberOfTeams} ${medal[placement] ?? ""}`;
+const formatPlacement = (placement?: number, numberOfTeams?: number) =>
+  typeof placement === "number" && typeof numberOfTeams === "number"
+    ? `${placement}/${numberOfTeams} ${medal[placement] ?? ""}`
+    : undefined;
 ---
 
 <Layout title="Tournaments">
@@ -39,68 +39,78 @@ const PlacementTableItem = (placement?: number, numberOfTeams?: number) =>
                 >
                   <thead class="border-b-2 border-gray-300">
                     <tr class="text-left">
-                      <th>Name</th>
-                      <th>Place</th>
-                      <th>Date</th>
-                      <th>Final placement</th>
-                      <th>Spirit placement</th>
-                      <th>Scores</th>
-                      <th>Media</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Place</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Final placement</th>
+                      <th scope="col">Spirit placement</th>
+                      <th scope="col">Scores</th>
+                      <th scope="col">Media</th>
                     </tr>
                   </thead>
                   <tbody>
                     {season.tournaments.map(
-                      ({ name, place, date, placements, links }) => (
-                        <tr class="border-b border-gray-300 pb-2">
-                          <TableItem>{name}</TableItem>
-                          <TableItem>{place}</TableItem>
-                          <TableItem>{date}</TableItem>
-                          <TableItem>
-                            {PlacementTableItem(
-                              placements?.finalPlacement,
-                              placements?.numberOfTeams,
-                            )}
-                          </TableItem>
-                          <TableItem>
-                            {PlacementTableItem(
-                              placements?.spirit,
-                              placements?.numberOfTeams,
-                            )}
-                          </TableItem>
-                          <TableItem>
-                            {links?.scores?.games && (
-                              <a
-                                class="underline hover:no-underline"
-                                href={links.scores.games}
-                              >
-                                Games
-                              </a>
-                            )}
-                            {links?.scores?.spirit && (
-                              <a
-                                class="underline hover:no-underline"
-                                href={links.scores.spirit}
-                              >
-                                Spirit
-                              </a>
-                            )}
-                          </TableItem>
-                          <TableItem>
-                            {links?.media &&
-                              links.media.map((link, index, array) => (
-                                <>
-                                  <a
-                                    class="underline hover:no-underline"
-                                    href={link}
-                                  >
-                                    {index + 1}
-                                  </a>
-                                  {index !== array.length - 1 && "|"}
-                                </>
-                              ))}
-                          </TableItem>
-                        </tr>
-                      ),
+                      ({ name, place, date, placements, links }) => {
+                        const finalPlacementText = formatPlacement(
+                          placements?.finalPlacement,
+                          placements?.numberOfTeams,
+                        );
+                        const spiritPlacementText = formatPlacement(
+                          placements?.spirit,
+                          placements?.numberOfTeams,
+                        );
+                        return (
+                          <tr class="border-b border-gray-300">
+                            <TableItem title={name}>{name}</TableItem>
+                            <TableItem title={place}>{place}</TableItem>
+                            <TableItem title={date}>{date}</TableItem>
+                            <TableItem title={finalPlacementText}>
+                              {finalPlacementText}
+                            </TableItem>
+                            <TableItem title={spiritPlacementText}>
+                              {spiritPlacementText}
+                            </TableItem>
+                            <TableItem>
+                              {links?.scores?.games && (
+                                <a
+                                  class="underline hover:no-underline"
+                                  href={links.scores.games}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  Games
+                                </a>
+                              )}
+                              {links?.scores?.spirit && (
+                                <a
+                                  class="underline hover:no-underline"
+                                  href={links.scores.spirit}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  Spirit
+                                </a>
+                              )}
+                            </TableItem>
+                            <TableItem>
+                              {links?.media &&
+                                links.media.map((link, index, array) => (
+                                  <>
+                                    <a
+                                      class="underline hover:no-underline"
+                                      href={link}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                    >
+                                      {index + 1}
+                                    </a>
+                                    {index !== array.length - 1 && "|"}
+                                  </>
+                                ))}
+                            </TableItem>
+                          </tr>
+                        );
+                      },
                     )}
                   </tbody>
                 </table>
