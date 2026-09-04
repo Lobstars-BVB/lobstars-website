@@ -25,6 +25,43 @@ type Season = {
 export const seasons: Season[] = [
   {
     year: 2026,
+    season: "Outdoor",
+    tournaments: [
+      { name: "DM 1. we", place: "Eberswalde", date: "13.6-14.6" },
+      {
+        name: "DM 2. we",
+        place: "Berlin",
+        date: "25.7-26.7",
+        placements: { numberOfTeams: 6, finalPlacement: 4 },
+        links: {
+          scores: {
+            games:
+              "https://scores.frisbeesportverband.de/?view=games&series=1920",
+          },
+          media: [
+            "https://1drv.ms/f/c/173e4c39ef7c1f0c/IgCtYPgIDboySo2NpPXNJ-c-ATTG66cqQIKymTg5LCjxxd0?e=6v6LfY",
+          ],
+        },
+      },
+      {
+        name: "Wäsche Waschen",
+        place: "Eberswalde",
+        date: "15.8-16.8",
+        placements: { numberOfTeams: 12, spirit: 12, finalPlacement: 2 },
+        links: {
+          scores: {
+            games:
+              "https://ultiversum.com/tournaments/waesche-waschen-2026/games",
+          },
+          media: [
+            "https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy8xNzNlNGMzOWVmN2MxZjBjL0lnQmlXWDdmaTdOclM0NDhhNmR4QVpMUEFRX1Rka2VZRHNSSWx1MzhKZ3dHRUZZP2U9QU45ZjNo&id=173E4C39EF7C1F0C%21sdf7e5962b38b4b6b8e3c6ba7710192cf&cid=173E4C39EF7C1F0C&sb=name&sd=1&v=validatepermission",
+          ],
+        },
+      },
+    ],
+  },
+  {
+    year: 2026,
     season: "Indoor",
     tournaments: [
       {
@@ -432,21 +469,21 @@ export const seasons: Season[] = [
     season: "Outdoor",
     tournaments: [
       {
-        name: "BBM (as Trepthrowers)",
-        place: "Berlin",
-        date: "17.10",
-        placements: {
-          numberOfTeams: 16,
-          finalPlacement: 13,
-        },
-      },
-      {
         name: "TiB tournament (as Trepthrowers)",
         place: "Berlin",
         date: "26.6-27.6",
         placements: {
           numberOfTeams: 16,
           finalPlacement: 16,
+        },
+      },
+      {
+        name: "BBM (as Trepthrowers)",
+        place: "Berlin",
+        date: "17.10",
+        placements: {
+          numberOfTeams: 16,
+          finalPlacement: 13,
         },
       },
     ],
