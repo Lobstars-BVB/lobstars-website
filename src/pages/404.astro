@@ -1,0 +1,18 @@
+---
+import Layout from "../layouts/Layout.astro";
+import HeaderSection from "../components/HeaderSection.astro";
+import FooterSection from "../components/FooterSection.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import "../styles/global.css";
+---
+
+<Layout title="Page not found | Lobstars Ultimate Frisbee - Berlin">
+  <HeaderSection id="header" />
+  <main>
+    <SectionContainer>
+      <h1 class="my-6">Page not found</h1>
+      <a class="link" href="/">Back to the homepage</a>
+    </SectionContainer>
+  </main>
+  <FooterSection />
+</Layout>

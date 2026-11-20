@@ -26,3 +26,7 @@ npm-debug.log*
 
 # Playwright
 /playwright/.auth/
+
+# Cloudflare local development
+.wrangler/
+.dev.vars*
